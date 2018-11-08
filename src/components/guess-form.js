@@ -7,9 +7,13 @@ export default function GuessForm(props) {
     <form
       onSubmit={e => {
         e.preventDefault();
-        props.handleSubmit(Number(e.target.userGuess.value));
-      }}
-    >
+        return new Promise(function(resolve, reject) {
+          props.handleSubmit(Number(e.target.userGuess.value));
+          resolve()
+        })
+        .then(() =>  props.handleStatus())
+        .catch(err => console.log("whoops! something's broken :-/"))
+      }}>  
       <input
         type="text"
         name="userGuess"
