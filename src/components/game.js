@@ -33,6 +33,10 @@ export default class Game extends React.Component {
     feedback = 'Hot';
   } else {
     feedback = 'You win!';
+    // this.setState({
+    //   guesses: [],
+    //   answer: Math.floor(Math.random() * 100) + 1
+    // })
   }
 
   this.setState({
@@ -41,11 +45,24 @@ export default class Game extends React.Component {
   })
   }
 
+  newGame() {
+    this.setState({
+      guesses: [],
+      answer: Math.floor(Math.random() * 100) + 1,
+      feedback: 'Make Your Guess'
+    })
+  }
+
+  infoToggle(){
+    this.setState({
+      info: !this.state.info
+    })
+  }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header newGameButton={() => this.newGame()} infoToggle={()=> this.infoToggle()} modalShow={this.state.info}/>
         <GuessSection
           feedback={this.state.feedback}
           handleSubmit={val => this.handleSubmit(val)}
