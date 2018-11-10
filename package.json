@@ -2,14 +2,15 @@
   "name": "hot-cold",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080/",
-  "devDependencies": {
-    "react-scripts": "0.9.0"
-  },
   "engines": {
     "npm": "6.4.1",
     "node": "10.9.0"
   },
+  "proxy": "http://localhost:8080/",
+  "devDependencies": {
+    "react-scripts": "0.9.0"
+  },
+  
   "dependencies": {
     "mime": "^2.3.1",
     "react": "^15.4.2",
